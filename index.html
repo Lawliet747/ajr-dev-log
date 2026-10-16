@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AJR Dev Log | Anthony Joseph Robles, aspiring web developer</title>
+  <meta name="description" content="AJR Dev Log is the personal site of Anthony Joseph Robles, an aspiring web developer and anime figure collector from Metro Manila. Read his story and get in touch.">
+  <meta name="theme-color" content="#0e1320">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://lawliet747.github.io/ajr-vlogs-v2/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AJR Dev Log">
+  <meta property="og:title" content="AJR Dev Log">
+  <meta property="og:description" content="An aspiring web developer from Metro Manila who collects anime figures. Built with HTML, CSS, JavaScript and Claude.">
+  <meta property="og:url" content="https://lawliet747.github.io/ajr-vlogs-v2/">
+  <meta property="og:image" content="https://lawliet747.github.io/ajr-vlogs-v2/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AJR Dev Log, aspiring web developer and anime figure collector">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top">AJR Dev Log</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <h1 class="hero-title" id="hero-title">AJR Dev Log</h1>
+        <p class="hero-lead">Hi, I'm Anthony, an aspiring web developer and anime figure collector. This site began as a college lab exercise in 2020. This version is a fresh rebuild, written with Claude as my coding partner.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#about">Read my story</a>
+          <a class="btn btn-secondary" href="#contact">Send a message</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="wrap about-grid">
+        <figure class="portrait">
+          <img
+            src="assets/images/portrait.jpg"
+            alt="Portrait of Anthony Joseph Robles"
+            width="696" height="696" loading="lazy">
+        </figure>
+
+        <div class="about-copy">
+          <h2 id="about-title">About me</h2>
+          <p>Hi! I'm Anthony Joseph Robles, an aspiring web developer from Caloocan, Metro Manila. I completed my BS in Information Technology at the University of the East on an IT generalist track; covering programming, networking, web development and database administration.</p>
+          <p>My original plan was to program video games or animate for a studio like Pixar. Then, I took my first web development course. After this, game algorithms and endless animation hours sounded draining. Meanwhile, building websites gave me energy instead.</p>
+          <p>I'm always learning on my own time, training myself in other areas of IT because knowledge is power. Away from the keyboard, you'll find me collecting anime figures. You can watch my <a href="https://vimeo.com/453741662" target="_blank" rel="noopener">Shoto Todoroki unboxing on Vimeo</a>.</p>
+
+          <h3>How I got here</h3>
+          <ol class="path">
+            <li><strong>The plan</strong> Become a game programmer or a studio animator.</li>
+            <li><strong>The switch</strong> My first web development course at the University of the East.</li>
+            <li><strong>The first site</strong> AJR Vlogs, built on September 1, 2020 as a lab exercise.</li>
+            <li><strong>Today</strong> This rebuild, built with HTML, CSS, JavaScript and Claude.</li>
+          </ol>
+
+          <blockquote class="quote">
+            <p>"Excellence is the gradual result of always striving to do better."</p>
+            <footer>-Pat Riley-</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <h2 id="contact-title">Get in touch</h2>
+          <p>Have a question about web design, or just want to greet and say hi? Send a message and I'll reply by email.</p>
+          <ul class="contact-links">
+            <li><a href="mailto:anthonyjosephrobles13@gmail.com">anthonyjosephrobles13@gmail.com</a></li>
+            <!--<li><a href="https://www.facebook.com/" target="_blank" rel="me noopener">Facebook (Under Maintenance)</a></li>-->
+            <li><a href="https://m.me/Anthony757" target="_blank" rel="noopener">Messenger</a></li>
+            <!--<li><a href="https://x.com/username/" target="_blank" rel="me noopener">X (Twitter) (Under Maintenance)</a></li>-->
+            <!--<li><a href="https://instagram.com/username/" target="_blank" rel="me noopener">Instagram (Under Maintenance)</a></li>-->
+          </ul>
+        </div>
+
+        <!--
+          To receive messages without opening an email app:
+          1. Create a free form at https://formspree.io
+          2. Replace YOUR_FORM_ID below with the ID Formspree gives you.
+          Until then, the form opens the visitor's email app with the message filled in.
+        -->
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/mgaornkr" method="POST" data-fallback-email="anthonyjosephrobles13@gmail.com" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year">2026</span> Anthony Joseph Robles. Built with HTML, CSS, JavaScript and Claude.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
