@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>AJR Vlogs</title>
+  <defs>
+    <clipPath id="r"><rect width="64" height="64" rx="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#r)">
+    <rect width="32" height="64" fill="#8fd3ff"/>
+    <rect x="32" width="32" height="64" fill="#ff7a3d"/>
+    <rect x="30.5" width="3" height="64" fill="#0e1320"/>
+  </g>
+</svg>
