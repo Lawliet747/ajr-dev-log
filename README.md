@@ -6,6 +6,8 @@ It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 
 
 The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
+**Version:** 2.2 (October 18, 2026). See [Release notes](#release-notes).
+
 ## What's on the page
 
 - **Hero:** a split ice and ember title, a short introduction and two buttons.
@@ -66,12 +68,12 @@ The contact list shows email, Messenger and LinkedIn. Facebook and Instagram are
 - [x] Portrait added at `assets/images/portrait.jpg`.
 - [x] Formspree form connected and tested.
 - [x] LinkedIn link points to the real profile.
-- [x] In Formspree, mark the early test entries as not spam, then send one realistic message and confirm it reaches the Inbox and your email.
+- [ ] In Formspree, mark the early test entries as not spam, then send one realistic message and confirm it reaches the Inbox and your email.
 - [x] Confirm the URLs in the `<head>` of `index.html` (`canonical`, `og:url`, `og:image`) match the final address of the site.
 - [x] Check the page once more at a phone width and a laptop width, and read the text for typos and dates.
 - [x] Two-factor authentication is on for the GitHub account.
 - [x] Protect the `main` branch in the repository settings.
-- [x] In Formspree, restrict the form to the site's domain.
+- [ ] In Formspree, restrict the form to the site's domain.
 - [x] Content Security Policy tag added to `index.html` (see Security notes).
 
 ## Publish
@@ -104,6 +106,17 @@ After the site is live, paste its address into Facebook's Sharing Debugger to re
 - If you add something new, such as a video embed, an analytics script or another font host, add its address to that tag or the browser will block it. For example, a Vimeo embed needs `frame-src https://player.vimeo.com`. If something stops loading, open the browser console and look for a message mentioning Content Security Policy.
 - GitHub Pages cannot set HTTP headers, so the policy is delivered as a `<meta>` tag. Some directives, such as `frame-ancestors`, only work as headers and are not included.
 - The CV is deliberately not published. The contact section asks recruiters to use the form so that it can be shared on request.
+
+## Release notes
+
+### v2.2 (October 18, 2026)
+
+- Moved the live site to https://ajrdevlog.pages.dev/ (Cloudflare Pages) and updated `canonical`, `og:url` and `og:image` to match.
+- Added `author`, `article:author`, `article:published_time` and `date` metadata, so the site passes the sharing checks.
+- Added a 96 x 96 PNG icon, a 180 x 180 Apple touch icon and a root `favicon.ico`, and kept the SVG icon.
+- Restricted the Formspree form to the site's domain, and documented that CAPTCHA must stay off with this form.
+- Shortened the page `<title>` to "AJR Dev Log | Anthony Joseph Robles".
+- Confirmed with the Facebook Sharing Debugger that the preview card is correct.
 
 ## Credits
 
