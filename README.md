@@ -4,7 +4,7 @@ The personal site of Anthony Joseph Robles, a tech support analyst and aspiring 
 
 It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 and was made with a site builder.
 
-Once published, the site will live at https://lawliet747.github.io/ajr-dev-log-v1/
+The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
 ## What's on the page
 
@@ -46,6 +46,8 @@ The form sends messages through [Formspree](https://formspree.io). The form's ID
 - `script.js` validates the fields and sends the message with `fetch`, then shows a success or error message under the button.
 - A hidden spam-trap field (`_gotcha`) quietly drops submissions from bots.
 - If the form's `action` ever contains `YOUR_FORM_ID`, the form falls back to opening the visitor's email app with the message filled in.
+- Keep CAPTCHA switched off in the form's Formspree settings. The form sends with `fetch` and has no CAPTCHA widget, so with CAPTCHA on, every submission is rejected with a 403 error.
+- The form is restricted to the site's domain (`ajrdevlog.pages.dev`). Submissions from anywhere else, including a local copy opened from a file, go to the Spam tab. Test on the live site.
 - Formspree's spam filter can flag throwaway test entries such as "test 1". If a message does not arrive in your inbox, check the Spam tab in the dashboard and mark real messages as not spam.
 
 ## Contact links
@@ -69,11 +71,13 @@ The contact list shows email, Messenger and LinkedIn. Facebook and Instagram are
 - [ ] In Formspree, restrict the form to the site's domain.
 - [x] Content Security Policy tag added to `index.html` (see Security notes).
 
-## Publish with GitHub Pages
+## Publish
 
 1. Go to Settings > Pages in the repository.
 2. Under Build and deployment, choose Deploy from a branch, then select `main` and the `/ (root)` folder.
 3. Save, and wait a minute or two for the site to go live.
+
+The site is deployed from the `main` branch with Cloudflare Pages, which redeploys on each push. If you host on GitHub Pages instead, update the `<head>` URLs and the Formspree domain to match.
 
 GitHub Pages is only available for private repositories on paid GitHub plans (Pro, Team or Enterprise). On the Free plan, the repository must be public to publish. A published Pages site is visible to everyone on the internet, even when the repository itself is private.
 
