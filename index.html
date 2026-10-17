@@ -3,6 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--
+    Content Security Policy: the browser may only load what this page actually uses.
+    - Scripts and images: this site only
+    - Styles: this site and Google Fonts; fonts: Google Fonts
+    - Form messages: Formspree only
+    If you add something new (a video embed, an analytics script, another font host),
+    add its address here, or the browser will block it.
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src https://formspree.io; form-action https://formspree.io; base-uri 'self'; object-src 'none'">
   <title>AJR Dev Log | Anthony Joseph Robles, aspiring web developer</title>
   <meta name="description" content="AJR Dev Log is the personal site of Anthony Joseph Robles, a support analyst and aspiring web developer from Metro Manila, open to new roles. Get in touch.">
   <meta name="theme-color" content="#0e1320">
