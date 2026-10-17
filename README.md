@@ -66,7 +66,7 @@ The contact list shows email, Messenger and LinkedIn. Facebook and Instagram are
 - [x] Check the page once more at a phone width and a laptop width, and read the text for typos and dates.
 - [x] Two-factor authentication is on for the GitHub account.
 - [x] Protect the `main` branch in the repository settings.
-- [ ] In Formspree, restrict the form to the site's domain.
+- [x] In Formspree, restrict the form to the site's domain.
 - [x] Content Security Policy tag added to `index.html` (see Security notes).
 
 ## Publish with GitHub Pages
