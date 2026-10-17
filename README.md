@@ -68,12 +68,12 @@ The contact list shows email, Messenger and LinkedIn. Facebook and Instagram are
 - [x] Portrait added at `assets/images/portrait.jpg`.
 - [x] Formspree form connected and tested.
 - [x] LinkedIn link points to the real profile.
-- [ ] In Formspree, mark the early test entries as not spam, then send one realistic message and confirm it reaches the Inbox and your email.
+- [x] In Formspree, mark the early test entries as not spam, then send one realistic message and confirm it reaches the Inbox and your email.
 - [x] Confirm the URLs in the `<head>` of `index.html` (`canonical`, `og:url`, `og:image`) match the final address of the site.
 - [x] Check the page once more at a phone width and a laptop width, and read the text for typos and dates.
 - [x] Two-factor authentication is on for the GitHub account.
 - [x] Protect the `main` branch in the repository settings.
-- [ ] In Formspree, restrict the form to the site's domain.
+- [x] In Formspree, restrict the form to the site's domain.
 - [x] Content Security Policy tag added to `index.html` (see Security notes).
 
 ## Publish
