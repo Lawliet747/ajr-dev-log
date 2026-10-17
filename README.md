@@ -16,12 +16,15 @@ The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
 ```
 index.html        Page markup (hero, about, contact)
+favicon.ico       Fallback browser icon (kept in the root on purpose)
 style.css         All styles, with design tokens at the top
 script.js         Nav highlighting, footer year and contact form
 README.md         This file
 .gitignore        Files Git should skip
 assets/
   favicon.svg     Browser tab icon
+  favicon-96x96.png     PNG browser icon
+  apple-touch-icon.png  Home-screen icon on Apple devices (180 x 180)
   og-image.png    Social preview image (1200 x 630)
   images/
     portrait.jpg  Photo shown in the About section
@@ -63,12 +66,12 @@ The contact list shows email, Messenger and LinkedIn. Facebook and Instagram are
 - [x] Portrait added at `assets/images/portrait.jpg`.
 - [x] Formspree form connected and tested.
 - [x] LinkedIn link points to the real profile.
-- [x] In Formspree, mark the early test entries as not spam, then send one realistic message and confirm it reaches the Inbox and your email.
+- [ ] In Formspree, mark the early test entries as not spam, then send one realistic message and confirm it reaches the Inbox and your email.
 - [x] Confirm the URLs in the `<head>` of `index.html` (`canonical`, `og:url`, `og:image`) match the final address of the site.
 - [x] Check the page once more at a phone width and a laptop width, and read the text for typos and dates.
 - [x] Two-factor authentication is on for the GitHub account.
 - [x] Protect the `main` branch in the repository settings.
-- [x] In Formspree, restrict the form to the site's domain.
+- [ ] In Formspree, restrict the form to the site's domain.
 - [x] Content Security Policy tag added to `index.html` (see Security notes).
 
 ## Publish
