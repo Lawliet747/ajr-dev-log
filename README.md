@@ -68,25 +68,25 @@ The contact list shows email, Messenger and LinkedIn. Facebook and Instagram are
 - [x] Portrait added at `assets/images/portrait.jpg`.
 - [x] Formspree form connected and tested.
 - [x] LinkedIn link points to the real profile.
-- [ ] In Formspree, mark the early test entries as not spam, then send one realistic message and confirm it reaches the Inbox and your email.
+- [x] In Formspree, mark the early test entries as not spam, then send one realistic message and confirm it reaches the Inbox and your email.
 - [x] Confirm the URLs in the `<head>` of `index.html` (`canonical`, `og:url`, `og:image`) match the final address of the site.
 - [x] Check the page once more at a phone width and a laptop width, and read the text for typos and dates.
 - [x] Two-factor authentication is on for the GitHub account.
 - [x] Protect the `main` branch in the repository settings.
-- [ ] In Formspree, restrict the form to the site's domain.
+- [x] In Formspree, restrict the form to the site's domain.
 - [x] Content Security Policy tag added to `index.html` (see Security notes).
 
 ## Publish
 
-1. Go to Settings > Pages in the repository.
-2. Under Build and deployment, choose Deploy from a branch, then select `main` and the `/ (root)` folder.
-3. Save, and wait a minute or two for the site to go live.
+The site is deployed with Cloudflare Pages from the `main` branch. Every push to `main` redeploys it within a minute or two, and there is no build step. GitHub Pages is not used: it is unpublished, and the live site is only at https://ajrdevlog.pages.dev/.
 
-The site is deployed from the `main` branch with Cloudflare Pages, which redeploys on each push. If you host on GitHub Pages instead, update the `<head>` URLs and the Formspree domain to match.
+1. Push or merge a change to `main`.
+2. In the Cloudflare dashboard, open Workers & Pages, select the project, and open Deployments. The newest deployment should show Success.
+3. Hard refresh the live site to see the change.
 
-GitHub Pages is only available for private repositories on paid GitHub plans (Pro, Team or Enterprise). On the Free plan, the repository must be public to publish. A published Pages site is visible to everyone on the internet, even when the repository itself is private.
+The contact form only works on `ajrdevlog.pages.dev`, because Formspree is restricted to that domain. If the address ever changes, update the `canonical`, `og:url` and `og:image` tags in `index.html`, and the domain in Formspree's settings.
 
-After the site is live, paste its address into Facebook's Sharing Debugger to refresh the cached preview image.
+After a change to the preview image or the sharing tags, paste the site address into Facebook's Sharing Debugger to refresh the cached preview.
 
 ## Design notes
 
@@ -104,7 +104,7 @@ After the site is live, paste its address into Facebook's Sharing Debugger to re
 - The page loads no third-party scripts. Google Fonts is the only outside resource besides the Formspree form endpoint.
 - A Content Security Policy `<meta>` tag at the top of `index.html` tells browsers to load scripts and images from this site only, styles from this site and Google Fonts, fonts from Google Fonts, and to send form messages to Formspree only. It also blocks inline scripts, so injected code would not run.
 - If you add something new, such as a video embed, an analytics script or another font host, add its address to that tag or the browser will block it. For example, a Vimeo embed needs `frame-src https://player.vimeo.com`. If something stops loading, open the browser console and look for a message mentioning Content Security Policy.
-- GitHub Pages cannot set HTTP headers, so the policy is delivered as a `<meta>` tag. Some directives, such as `frame-ancestors`, only work as headers and are not included.
+- The policy is delivered as a `<meta>` tag so that it works on any host. Some directives, such as `frame-ancestors`, only work as headers and are not included.
 - The CV is deliberately not published. The contact section asks recruiters to use the form so that it can be shared on request.
 
 ## Release notes
