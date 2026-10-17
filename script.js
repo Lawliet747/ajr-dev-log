@@ -81,7 +81,7 @@
     // No Formspree ID yet: open the visitor's email app instead
     if (form.action.indexOf("YOUR_FORM_ID") !== -1) {
       const to = form.dataset.fallbackEmail;
-      const subject = encodeURIComponent("Message from " + name + " via AJR Vlogs");
+      const subject = encodeURIComponent("Message from " + name + " via AJR Dev Log");
       const body = encodeURIComponent(message + "\n\nFrom: " + name + " (" + email + ")");
       setStatus("Opening your email app with your message ready to send.", "success");
       window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
