@@ -4,7 +4,7 @@ The personal site of Anthony Joseph Robles, a tech support analyst and aspiring 
 
 It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 and was made with a site builder.
 
-Once published, the site will live at https://lawliet747.github.io/ajr-vlogs-v2/
+Once published, the site will live at https://lawliet747.github.io/ajr-dev-log-v1/
 
 ## What's on the page
 
@@ -62,10 +62,10 @@ The contact list shows email, Messenger and LinkedIn. Facebook and Instagram are
 - [x] Formspree form connected and tested.
 - [x] LinkedIn link points to the real profile.
 - [ ] In Formspree, mark the early test entries as not spam, then send one realistic message and confirm it reaches the Inbox and your email.
-- [ ] Confirm the URLs in the `<head>` of `index.html` (`canonical`, `og:url`, `og:image`) match the final address of the site.
-- [ ] Check the page once more at a phone width and a laptop width, and read the text for typos and dates.
+- [x] Confirm the URLs in the `<head>` of `index.html` (`canonical`, `og:url`, `og:image`) match the final address of the site.
+- [x] Check the page once more at a phone width and a laptop width, and read the text for typos and dates.
 - [x] Two-factor authentication is on for the GitHub account.
-- [ ] Protect the `main` branch in the repository settings.
+- [x] Protect the `main` branch in the repository settings.
 - [ ] In Formspree, restrict the form to the site's domain.
 - [x] Content Security Policy tag added to `index.html` (see Security notes).
 
