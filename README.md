@@ -6,7 +6,7 @@ It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 
 
 The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
-**Version:** 2.2 (October 18, 2026). See [Release notes](#release-notes).
+**Version:** 2.3 (October 19, 2026). See [Release notes](#release-notes).
 
 ## What's on the page
 
@@ -116,6 +116,15 @@ After a change to the preview image or the sharing tags, paste the site address 
 - The CV is deliberately not published. The contact section asks recruiters to use the form so that it can be shared on request.
 
 ## Release notes
+
+### v2.3 (October 19, 2026)
+
+- Restyled the site with a matte black base, fine film grain, a faint grid behind the hero, mono HUD-style labels, square corners and corner brackets. The ice and ember accents stay.
+- Added a short, rare glitch on the hero title. It is switched off for visitors who prefer reduced motion.
+- Added a Projects tab and a section with three "coming soon" cards.
+- Replaced the icon set (SVG, 96 x 96 PNG, Apple touch icon, `favicon.ico`) with a new glitch-sliced "A" mark, and added the mark beside the name in the header.
+- Rebuilt the social preview image (`og-image.png`) to match, and added `twitter:image` and `twitter:image:alt` tags.
+- Fixed the header on narrow phones: Home is hidden below 520 px, and below 370 px only the icon shows next to the nav, so nothing overflows at 320 px.
 
 ### v2.2 (October 18, 2026)
 
