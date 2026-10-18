@@ -1,11 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <title>AJR Dev Log</title>
   <defs>
-    <clipPath id="r"><rect width="64" height="64" rx="14"/></clipPath>
+    <!-- Hard colour cut down the middle: ice on the left, ember on the right -->
+    <linearGradient id="split" gradientUnits="userSpaceOnUse" x1="12" y1="0" x2="52" y2="0">
+      <stop offset="0.5" stop-color="#8fd3ff"/>
+      <stop offset="0.5" stop-color="#ff7a3d"/>
+    </linearGradient>
+    <clipPath id="top"><rect x="0" y="0" width="64" height="28.5"/></clipPath>
+    <clipPath id="mid"><rect x="0" y="28.5" width="64" height="15"/></clipPath>
+    <clipPath id="low"><rect x="0" y="43.5" width="64" height="21"/></clipPath>
+    <polygon id="a" points="32,11 52,52 42,52 32,31 22,52 12,52"/>
   </defs>
-  <g clip-path="url(#r)">
-    <rect width="32" height="64" fill="#8fd3ff"/>
-    <rect x="32" width="32" height="64" fill="#ff7a3d"/>
-    <rect x="30.5" width="3" height="64" fill="#0e1320"/>
+  <rect width="64" height="64" rx="12" fill="#0a0b0d"/>
+  <!-- The "A" chevron, cut into three slices that slide sideways -->
+  <g fill="url(#split)">
+    <g clip-path="url(#top)"><use href="#a"/></g>
+    <g clip-path="url(#mid)"><use href="#a" transform="translate(3.5 0)"/></g>
+    <g clip-path="url(#low)"><use href="#a" transform="translate(-2.5 0)"/></g>
   </g>
+  <!-- HUD corner brackets -->
+  <path d="M6 15V6h9" fill="none" stroke="#8fd3ff" stroke-width="2.4" stroke-linecap="square"/>
+  <path d="M58 49v9h-9" fill="none" stroke="#ff7a3d" stroke-width="2.4" stroke-linecap="square"/>
 </svg>
