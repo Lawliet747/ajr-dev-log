@@ -10,8 +10,9 @@ The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
 ## What's on the page
 
-- **Hero:** a split ice and ember title, a short introduction and two buttons.
+- **Hero:** a split ice and ember title with a rare glitch flash, a short introduction and two buttons.
 - **About:** portrait, short bio, a tech support career paragraph, and a "How I got here" timeline.
+- **Projects:** a placeholder section with three "coming soon" cards, ready to be filled in.
 - **Contact:** a note for recruiters and anyone interested in my CV, contact links with icons, and a working contact form.
 
 ## Structure
@@ -28,6 +29,7 @@ assets/
   favicon-96x96.png     PNG browser icon
   apple-touch-icon.png  Home-screen icon on Apple devices (180 x 180)
   og-image.png    Social preview image (1200 x 630)
+  noise.png       Tiled film-grain texture laid over the page
   images/
     portrait.jpg  Photo shown in the About section
 ```
@@ -43,6 +45,10 @@ python3 -m http.server 8000
 ```
 
 Then visit http://localhost:8000.
+
+## Projects
+
+The Projects section is in `index.html`, between About and Contact. Each project is one `<li class="project-card">`. To add a real project, change the status text, the `<h3>` title and the description, and wrap the title in a link if it has a page of its own. To hide the section for now, comment out the whole `<section class="projects">` block and the Projects item in the header nav.
 
 ## Contact form
 
@@ -90,12 +96,14 @@ After a change to the preview image or the sharing tags, paste the site address 
 
 ## Design notes
 
-- **Palette:** ink `#0e1320`, ice `#8fd3ff`, ember `#ff7a3d`, with a dark tint of each for the split hero.
-- **Type:** Dela Gothic One for headings and Hanken Grotesk for body text, loaded from Google Fonts.
+- **Look:** a matte black base with fine film grain (`assets/noise.png`, laid over the page by `body::before`), a faint grid behind the hero, mono HUD-style labels, square corners and corner brackets on the project cards. It is inspired by hacker-style interfaces in general and uses no logos or artwork from any game.
+- **Palette:** ink `#0a0b0d`, ice `#8fd3ff`, ember `#ff7a3d`, with a very dark tint of each for the split hero.
+- **Type:** Dela Gothic One for headings, Hanken Grotesk for body text and JetBrains Mono for labels, nav and buttons, all loaded from Google Fonts.
 - **Hero title:** a two-colour gradient clipped to the text, with the colour change sitting on the hero's centre seam. The `padding-bottom` on `.hero-title` keeps the tail of the "g" from being cut off.
 - **Phones (860 px and narrower):** the colour split is confined to a band behind the title. The band's height is calculated from the title's font size (`--title-fs`), so the title stays centred in it at every width. The hero and form buttons share one full-width layout.
 - **Icons:** simple line icons that take the link colour. They are generic symbols, not brand logos.
-- **Motion:** one load animation (the hero seam), disabled when the visitor prefers reduced motion.
+- **Motion:** the hero seam animation on load and a short title glitch every few seconds. Both are switched off when the visitor prefers reduced motion.
+- **Phones:** below 520 px the Home link is hidden from the header so four nav items fit; the brand already links to the top.
 
 ## Security notes
 
