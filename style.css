@@ -449,6 +449,42 @@ a:hover { color: #b9e5ff; }
 .project-card h3 { margin: 0.9rem 0 0.5rem; }
 .project-card p  { margin: 0; color: var(--muted); }
 
+/* Cards are columns so the link of a taller card sits at the bottom */
+.project-card { display: flex; flex-direction: column; align-items: flex-start; }
+.project-head { display: flex; align-items: center; gap: 0.9rem; }
+.project-icon { width: 3rem; height: 3rem; flex: none; }
+
+.project-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+.project-tags li {
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.project-link {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ember);
+}
+.project-link:hover { color: #ff9060; text-decoration: underline; text-underline-offset: 0.3em; }
+
 /* ---------- Contact ---------- */
 .contact-grid {
   display: grid;
