@@ -6,13 +6,13 @@ It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 
 
 The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
-**Version:** 2.3 (October 19, 2026). See [Release notes](#release-notes).
+**Version:** 3.0 (October 20, 2026). See [Release notes](#release-notes).
 
 ## What's on the page
 
 - **Hero:** a split ice and ember title with a rare glitch flash, a short introduction and two buttons.
 - **About:** portrait, short bio, a tech support career paragraph, and a "How I got here" timeline.
-- **Projects:** a placeholder section with three "coming soon" cards, ready to be filled in.
+- **Projects:** the first project, the Detective Conan Watch Order checklist, with two "coming soon" cards ready to be filled in.
 - **Contact:** a note for recruiters and anyone interested in my CV, contact links with icons, and a working contact form.
 
 ## Structure
@@ -30,6 +30,8 @@ assets/
   apple-touch-icon.png  Home-screen icon on Apple devices (180 x 180)
   og-image.png    Social preview image (1200 x 630)
   noise.png       Tiled film-grain texture laid over the page
+  projects/
+    watch-order.svg  Icon for the Detective Conan Watch Order project card
   images/
     portrait.jpg  Photo shown in the About section
 ```
@@ -48,7 +50,14 @@ Then visit http://localhost:8000.
 
 ## Projects
 
-The Projects section is in `index.html`, between About and Contact. Each project is one `<li class="project-card">`. To add a real project, change the status text, the `<h3>` title and the description, and wrap the title in a link if it has a page of its own. To hide the section for now, comment out the whole `<section class="projects">` block and the Projects item in the header nav.
+The Projects section is in `index.html`, between About and Contact. Each project is one `<li class="project-card">`.
+
+- **Live project:** the first card is a full example. It has an icon (`assets/projects/watch-order.svg`), a "Live" status, a title, a description, a list of tools (`project-tags`) and an "Open the app" link. Copy that card to add another project, and put its icon in `assets/projects/`. The link opens in a new tab with `rel="noopener"`.
+- **Placeholder cards:** the other two still say "Coming soon". To fill one in, change the status text, the `<h3>` title and the description, then add the tools list and link as in the first card.
+- **Hiding the section:** comment out the whole `<section class="projects">` block and the Projects item in the header nav.
+- **Images:** the Content Security Policy only allows images from this site, so keep project icons and screenshots inside `assets/`. Outside links are fine, since they are ordinary links and not loaded content.
+
+The Detective Conan Watch Order app is a separate project, hosted on its own Cloudflare Pages site at https://watch-detective-conan.pages.dev/. It is an unofficial fan project and uses only original artwork.
 
 ## Contact form
 
@@ -116,6 +125,13 @@ After a change to the preview image or the sharing tags, paste the site address 
 - The CV is deliberately not published. The contact section asks recruiters to use the form so that it can be shared on request.
 
 ## Release notes
+
+### v3.0 (October 20, 2026)
+
+- Added the first real project to the Projects section: the Detective Conan Watch Order checklist, with its own icon, a "Live" status, a list of tools and a link that opens the app in a new tab.
+- Updated the Projects intro line, and kept two "coming soon" cards for the next projects.
+- Added project card styles for the icon row, tool tags and link, and made each card a column so the link sits at the bottom of a taller card.
+- Added `assets/projects/watch-order.svg`. No scripts or third-party resources were added, so the Content Security Policy is unchanged.
 
 ### v2.3 (October 19, 2026)
 
