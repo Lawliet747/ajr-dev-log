@@ -16,7 +16,7 @@
     repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 56px),
     repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 56px);
 
-  --font-display: "Dela Gothic One", system-ui, sans-serif;
+  --font-display: "Chakra Petch", system-ui, sans-serif;
   --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
@@ -58,7 +58,7 @@ h1, h2, h3 { margin: 0; line-height: 1.15; }
 
 h2 {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
   font-size: clamp(1.8rem, 4vw, 2.75rem);
   letter-spacing: -0.01em;
   margin-bottom: 1.5rem;
@@ -121,6 +121,7 @@ a:hover { color: #b9e5ff; }
   align-items: center;
   gap: 0.6rem;
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.15rem;
   color: var(--text);
   text-decoration: none;
@@ -165,7 +166,9 @@ a:hover { color: #b9e5ff; }
 
 /* ---------- Hero ---------- */
 .hero {
-  --title-fs: clamp(2rem, 11.5vw, 20rem);
+  --title-fs: clamp(0.95rem, 4.9vw, 7rem);   /* the full name on one line: it is about 17.4em wide */
+  --title-lines: 1;
+  --title-fill: 0.97;   /* script.js sizes the name to fill this share of the width, whatever the font */
   position: relative;
   isolation: isolate;
   display: flex;
@@ -173,9 +176,10 @@ a:hover { color: #b9e5ff; }
   min-height: 80vh;
   min-height: max(30rem, calc(100svh - var(--header-h)));
   padding: clamp(2rem, 6vw, 5rem) 5vw;
-  background:
+  /*background:
     var(--grid),
     linear-gradient(90deg, var(--ice-bg) 50%, var(--ember-bg) 50%);
+  */
   overflow: hidden;
 }
 
@@ -200,10 +204,12 @@ a:hover { color: #b9e5ff; }
   margin: 0 0 0.75rem;      /* was 0 0 1.5rem */
   padding-bottom: 0.2em;    /* extra room so the "g" tail stays visible */
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
   font-size: var(--title-fs); /*old values: clamp(2rem, 8.5vw, 8rem)*/
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
   color: var(--ice); /* fallback if background-clip is unsupported */
   /* The colour cut sits at 50% of the box, exactly on the hero's seam */
   background: linear-gradient(90deg, var(--ice) 50%, var(--ember) 50%);
@@ -233,6 +239,27 @@ a:hover { color: #b9e5ff; }
 .hero-title::before { color: var(--ice);   -webkit-text-fill-color: var(--ice); }
 .hero-title::after  { color: var(--ember); -webkit-text-fill-color: var(--ember); animation-delay: 2.06s; }
 
+/* The same glitch, on the background: a copy of the hero's background sits behind
+   the content and flashes in shifted, colour-tinted slices, in step with the title */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: inherit;
+  opacity: 0;
+  pointer-events: none;
+  animation: bg-glitch 7s 2s infinite steps(1, end);
+}
+
+@keyframes bg-glitch {
+  0%, 100% { opacity: 0; }
+  91% { opacity: 0.8; transform: translate(-8px, 0); clip-path: inset(14% 0 66% 0); filter: hue-rotate(-20deg) saturate(1.6); }
+  93% { opacity: 0.8; transform: translate(8px, 0);  clip-path: inset(60% 0 22% 0); filter: hue-rotate(20deg) saturate(1.6); }
+  95% { opacity: 0.8; transform: translate(-5px, 0); clip-path: inset(36% 0 48% 0); filter: brightness(1.5); }
+  97% { opacity: 0; }
+}
+
 @keyframes glitch {
   0%, 100% { opacity: 0; }
   91% { opacity: 0.9; transform: translate(-5px, 0);  clip-path: inset(12% 0 62% 0); }
@@ -242,8 +269,10 @@ a:hover { color: #b9e5ff; }
 }
 
 .hero-lead {
-  max-width: min(40ch, 40vw);
-  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  max-width: 40ch;
+  font-size: clamp(1rem, 0.7rem + 1vw, 1.5rem);
+  line-height: 1.5;
+  text-wrap: balance;
   color: var(--text);
 }
 
@@ -264,6 +293,43 @@ a:hover { color: #b9e5ff; }
   to   { opacity: 1; }
 }
 
+/* Desktop hero: the photo fills the hero, the title sits near the bottom and
+   the tagline and buttons sit right under it */
+@media (min-width: 861px) and (orientation: landscape), (min-width: 1101px) {
+  .hero {
+    --title-fs: clamp(1.6rem, 4.5vw, 9rem);   /* the full name on one line, clear of the chin */
+    --title-lines: 1;
+    --title-fill: 0.72;
+    align-items: stretch;
+    padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    background:
+      linear-gradient(0deg, rgba(10, 11, 13, 0.9) 0%, rgba(10, 11, 13, 0.55) 22%, transparent 48%),
+      url(assets/images/background-desktop.webp) 50% 0% / cover no-repeat,
+      var(--ink);
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    row-gap: 1.25rem;
+  }
+
+  .hero-title { grid-row: 2; margin-bottom: 0; white-space: nowrap; }
+  .hero-copy  { grid-row: 3; align-self: start; }
+
+  .hero-lead {
+    max-width: none;
+    margin-bottom: 0;
+    text-shadow: 0 1px 14px rgba(0, 0, 0, 0.75);
+  }
+
+  /* Seam shows above the head and fades out behind the face and title */
+  .hero::before {
+    -webkit-mask-image: linear-gradient(180deg, #000 0, #000 8%, transparent 20%, transparent 56%, #000 64%, #000 68%, transparent 76%);
+    mask-image: linear-gradient(180deg, #000 0, #000 8%, transparent 20%, transparent 56%, #000 64%, #000 68%, transparent 76%);
+  }
+}
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-block;
@@ -271,7 +337,7 @@ a:hover { color: #b9e5ff; }
   border: 2px solid transparent;
   border-radius: 0;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: clamp(0.82rem, 0.6rem + 0.5vw, 1rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -582,19 +648,23 @@ a:hover { color: #b9e5ff; }
 }
 .site-footer p { margin: 0; max-width: none; }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 860px) {
-  /* Phones: confine the colour split to a band behind the title so the
-     seam no longer cuts through the paragraph and buttons */
+/* Stacked hero: phones, and tablets held upright. The colour split is confined
+   to a band behind the title so the seam no longer cuts through the text, and
+   the photo sits under the band with the text over its faded bottom edge.
+   Phones get a square crop; tablets (600px and up) get a wider 6:5 crop. */
+@media (max-width: 860px), (max-width: 1100px) and (orientation: portrait) {
   .hero {
     --pad: 1.1rem;                                   /* space above the title */
-    --band: calc(2 * var(--pad) + 1.22 * var(--title-fs)); /* centres the title in the band */
+    --band: calc(2 * var(--pad) + (var(--title-lines) + 0.22) * var(--title-fs)); /* centres the title in the band */
+    --photo-h: 100vw;                                /* square crop */
     align-items: flex-start;
     min-height: 0;
     padding-top: var(--pad);
-    padding-bottom: 3.5rem;
+    padding-bottom: 2.25rem;
     background:
       linear-gradient(90deg, var(--ice-bg) 50%, var(--ember-bg) 50%) top / 100% var(--band) no-repeat,
+      linear-gradient(0deg, var(--ink) 0%, rgba(10, 11, 13, 0.6) 18%, transparent 40%) 0 var(--band) / 100% var(--photo-h) no-repeat,
+      url(assets/images/background-mobile.webp) 0 var(--band) / 100% var(--photo-h) no-repeat,
       var(--grid),
       var(--ink);
   }
@@ -602,8 +672,34 @@ a:hover { color: #b9e5ff; }
 
   .hero-title { margin-bottom: calc(var(--pad) + 1.25rem); } /* clear gap below the band */
 
-  .hero-lead { max-width: 36ch; }
+  .hero-copy { margin-top: calc(var(--photo-h) - 4.25rem); position: relative; }
 
+  .hero-lead { max-width: 36ch; }
+}
+
+@media (min-width: 600px) and (max-width: 860px), (min-width: 600px) and (max-width: 1100px) and (orientation: portrait) {
+  .hero {
+    --photo-h: calc(100vw / 1.2);                    /* 6:5 crop */
+    background:
+      linear-gradient(90deg, var(--ice-bg) 50%, var(--ember-bg) 50%) top / 100% var(--band) no-repeat,
+      linear-gradient(0deg, var(--ink) 0%, rgba(10, 11, 13, 0.6) 18%, transparent 40%) 0 var(--band) / 100% var(--photo-h) no-repeat,
+      url(assets/images/background-tablet.webp) 0 var(--band) / 100% var(--photo-h) no-repeat,
+      var(--grid),
+      var(--ink);
+  }
+  .hero-lead { max-width: 60ch; }
+
+  /* Tablets: a touch more room and larger type for the tagline and buttons */
+  .hero-lead { font-size: clamp(1.1rem, 2vw, 1.6rem); }
+  /* Buttons keep their natural width on tablets instead of stretching across the screen.
+     The extra .hero keeps this ahead of the phone rule further down. */
+  .hero .hero-actions { gap: 1rem; margin-top: 1.5rem; }
+  .hero .hero-actions .btn { flex: 0 0 auto; font-size: clamp(0.95rem, 1.8vw, 1.3rem); padding: 1rem 1.9rem; }
+  .hero { padding-bottom: 3rem; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
   /* Buttons share the row and stretch to fill it, or stack full-width when
      space runs out. Labels stay centred and on one line. */
   .hero-actions .btn {
