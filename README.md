@@ -6,11 +6,11 @@ It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 
 
 The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
-**Version:** 3.0 (October 20, 2026). See [Release notes](#release-notes).
+**Version:** 3.2 (October 23, 2026). See [Release notes](#release-notes).
 
 ## What's on the page
 
-- **Hero:** a split ice and ember title with a rare glitch flash, a short introduction and two buttons.
+- **Hero:** a full-width photo behind the split ice and ember name, with a rare glitch flash on both the name and the background, then a one-line tagline and two buttons.
 - **About:** portrait, short bio, a tech support career paragraph, and a "How I got here" timeline.
 - **Projects:** the first project, the Detective Conan Watch Order checklist, with two "coming soon" cards ready to be filled in.
 - **Contact:** a note for recruiters and anyone interested in my CV, contact links with icons, and a working contact form.
@@ -18,22 +18,26 @@ The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 ## Structure
 
 ```
-index.html        Page markup (hero, about, contact)
+index.html        Page markup (hero, about, projects, contact)
 favicon.ico       Fallback browser icon (kept in the root on purpose)
 style.css         All styles, with design tokens at the top
-script.js         Nav highlighting, footer year and contact form
+script.js         Hero name fitting, nav highlighting, footer year and contact form
 README.md         This file
+RELEASE-*.md      The release description for each version
 .gitignore        Files Git should skip
 assets/
   favicon.svg     Browser tab icon
   favicon-96x96.png     PNG browser icon
   apple-touch-icon.png  Home-screen icon on Apple devices (180 x 180)
-  og-image.png    Social preview image (1200 x 630)
+  og-image.png    Social preview image (1200 x 630), with the name Anthony Joseph Robles
   noise.png       Tiled film-grain texture laid over the page
   projects/
     watch-order.svg  Icon for the Detective Conan Watch Order project card
   images/
     portrait.jpg  Photo shown in the About section
+    background-desktop.webp  Hero photo for desktops and tablets held sideways
+    background-tablet.webp   Hero photo (6:5 crop) for tablets held upright and wide phones
+    background-mobile.webp   Hero photo (square crop) for phones
 ```
 
 The contact link icons are inline SVGs inside `index.html`, so they need no extra files.
@@ -107,12 +111,13 @@ After a change to the preview image or the sharing tags, paste the site address 
 
 - **Look:** a matte black base with fine film grain (`assets/noise.png`, laid over the page by `body::before`), a faint grid behind the hero, mono HUD-style labels, square corners and corner brackets on the project cards. It is inspired by hacker-style interfaces in general and uses no logos or artwork from any game.
 - **Palette:** ink `#0a0b0d`, ice `#8fd3ff`, ember `#ff7a3d`, with a very dark tint of each for the split hero.
-- **Type:** Dela Gothic One for headings, Hanken Grotesk for body text and JetBrains Mono for labels, nav and buttons, all loaded from Google Fonts.
-- **Hero title:** a two-colour gradient clipped to the text, with the colour change sitting on the hero's centre seam. The `padding-bottom` on `.hero-title` keeps the tail of the "g" from being cut off.
-- **Phones (860 px and narrower):** the colour split is confined to a band behind the title. The band's height is calculated from the title's font size (`--title-fs`), so the title stays centred in it at every width. The hero and form buttons share one full-width layout.
+- **Type:** Chakra Petch (bold, squared and techy) for the hero name, headings and the header label, Hanken Grotesk for body text and JetBrains Mono for labels, nav and buttons, all loaded from Google Fonts. To change the heading font, change the link in the `<head>` of `index.html` and `--font-display` at the top of `style.css`.
+- **Hero name:** "ANTHONY JOSEPH ROBLES" in capitals on one line, as a two-colour gradient clipped to the text, with the colour change sitting on the hero's centre seam. `script.js` sizes it to fill a set share of the width (`--title-fill` in `style.css`: 0.97 on phones and upright tablets, 0.72 on desktop), so it stays on one line whichever font loads and on any screen. The `padding-bottom` on `.hero-title` keeps the tails of letters like "J" and "Y" from being cut off.
+- **Hero photo:** there are three layouts. On desktops and tablets held sideways the photo fills the hero, the name sits near the bottom and the tagline and buttons sit right under it. On phones and tablets held upright the layout is stacked: a title band, then the photo (a square crop on phones, a 6:5 crop from 600 px wide), with the tagline and buttons over its faded bottom edge. Each device downloads only the photo it uses. The photos are about 160 KB, 72 KB and 63 KB.
+- **Stacked hero (phones and upright tablets):** the colour split is confined to a band behind the name. The band's height is calculated from the name's font size (`--title-fs`) and line count (`--title-lines`), so the name stays centred in it at every width. On phones the hero and form buttons share one full-width layout, and on tablets the hero buttons keep their natural width.
 - **Icons:** simple line icons that take the link colour. They are generic symbols, not brand logos.
-- **Motion:** the hero seam animation on load and a short title glitch every few seconds. Both are switched off when the visitor prefers reduced motion.
-- **Phones:** below 520 px the Home link is hidden from the header so four nav items fit; the brand already links to the top.
+- **Motion:** the hero seam animation on load, and a short glitch every few seconds on the name and on the background photo, in step with each other. The background glitch is a copy of the hero background (`.hero::after`) that flashes in shifted, colour-tinted slices. All of it is switched off when the visitor prefers reduced motion.
+- **Small phones:** below 520 px the Home link is hidden from the header so four nav items fit; the brand already links to the top.
 
 ## Security notes
 
@@ -125,6 +130,17 @@ After a change to the preview image or the sharing tags, paste the site address 
 - The CV is deliberately not published. The contact section asks recruiters to use the form so that it can be shared on request.
 
 ## Release notes
+
+### v3.2 (October 23, 2026)
+
+- Added a full-width photo behind the hero, with three crops (`background-desktop.webp`, `background-tablet.webp`, `background-mobile.webp`), each loaded only on the devices that use it.
+- Changed the hero name from "AJR Dev Log" to "ANTHONY JOSEPH ROBLES", kept on one line on every screen. `script.js` now fits the name to the width, so any font works without resizing.
+- Moved the tagline and the two buttons below the name, with type that scales with the screen. On tablets the buttons keep their natural width instead of stretching.
+- Changed the heading font from Dela Gothic One to Chakra Petch, inspired by hacker-style interfaces. Updated the Google Fonts link to match.
+- Added the glitch effect to the hero background, in step with the name's glitch. It is switched off for visitors who prefer reduced motion.
+- Changed the page title, description and sharing tags to Anthony Joseph Robles, and rebuilt the social preview image (`og-image.png`) with the name. It is also smaller, about 112 KB instead of 243 KB. "AJR Dev Log" stays as the site name in the header and as the small label on the preview image.
+- Removed unused files from the repository: `background-desktop.png`, `icon-sheet.png`, `assets/images/portrait_og.jpg` and `assets/images/.gitkeep`.
+- No third-party scripts were added. The Content Security Policy is unchanged.
 
 ### v3.0 (October 20, 2026)
 

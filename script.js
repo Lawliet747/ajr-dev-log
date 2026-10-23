@@ -28,6 +28,36 @@
     sections.forEach((section) => observer.observe(section));
   }
 
+  // Hero name: size it to fill a set share of the width (--title-fill in the CSS),
+  // so it stays on one line whichever font loads and on every screen size
+  const hero = document.querySelector(".hero");
+  const heroTitle = document.getElementById("hero-title");
+  if (hero && heroTitle) {
+    const fitTitle = () => {
+      hero.style.removeProperty("--title-fs");
+      const fill = parseFloat(getComputedStyle(hero).getPropertyValue("--title-fill")) || 0.97;
+      const range = document.createRange();
+      range.selectNodeContents(heroTitle);
+      const textWidth = range.getBoundingClientRect().width;
+      const avail = heroTitle.clientWidth;
+      if (!textWidth || !avail) return;
+      const current = parseFloat(getComputedStyle(heroTitle).fontSize);
+      const size = Math.min(Math.max((current * avail * fill) / textWidth, 14), 144);
+      hero.style.setProperty("--title-fs", size.toFixed(2) + "px");
+    };
+    let frame = 0;
+    const queueFit = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(fitTitle);
+    };
+    fitTitle();
+    window.addEventListener("resize", queueFit);
+    if (document.fonts) {
+      if (document.fonts.ready) document.fonts.ready.then(queueFit);
+      document.fonts.addEventListener("loadingdone", queueFit);
+    }
+  }
+
   // Contact form
   const form = document.getElementById("contact-form");
   if (!form) return;
