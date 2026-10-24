@@ -672,6 +672,41 @@ a:hover { color: #b9e5ff; }
   .hero { padding-bottom: 3rem; }
 }
 
+/* Phones (under 600px): the hero fills the visible screen on load, so the next section
+   does not peek in at the bottom. The photo (a 3:4 crop) fills the space under the title
+   band, and the tagline and buttons sit at the bottom of the screen over its faded edge. */
+@media (max-width: 599px) {
+  .hero {
+    min-height: calc(100vh - var(--header-h));
+    min-height: calc(100svh - var(--header-h));
+    align-items: stretch;
+    padding-bottom: 1.75rem;
+    background:
+      linear-gradient(90deg, var(--ice-bg) 50%, var(--ember-bg) 50%) top / 100% var(--band) no-repeat,
+      var(--grid),
+      var(--ink);
+  }
+
+  .hero-inner { display: flex; flex-direction: column; }
+  .hero-copy  { margin-top: auto; }
+
+  /* The photo sits on its own layer below the band, so it can cover any phone shape.
+     The glitch copy (::after) uses the same photo. */
+  .hero::before,
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: var(--band);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background:
+      linear-gradient(0deg, var(--ink) 0%, rgba(10, 11, 13, 0.6) 18%, transparent 40%),
+      url(assets/images/background-mobile.webp) 50% 0 / cover no-repeat;
+  }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   /* Buttons share the row and stretch to fill it, or stack full-width when

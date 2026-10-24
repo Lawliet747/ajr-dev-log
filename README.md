@@ -6,7 +6,7 @@ It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 
 
 The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
-**Version:** 3.3 (October 23, 2026). See [Release notes](#release-notes).
+**Version:** 3.4 (October 25, 2026). See [Release notes](#release-notes).
 
 ## What's on the page
 
@@ -38,7 +38,7 @@ assets/
     portrait.jpg  Photo shown in the About section
     background-desktop.webp  Hero photo for desktops and tablets held sideways
     background-tablet.webp   Hero photo (6:5 crop) for tablets held upright and wide phones
-    background-mobile.webp   Hero photo (square crop) for phones
+    background-mobile.webp   Hero photo (3:4 crop) for phones
 ```
 
 The contact link icons are inline SVGs inside `index.html`, so they need no extra files.
@@ -133,6 +133,12 @@ After a change to the preview image or the sharing tags, paste the site address 
 - The CV is deliberately not published. The contact section asks recruiters to use the form so that it can be shared on request.
 
 ## Release notes
+
+### v3.4 (October 25, 2026)
+
+- On phones (under 600 px wide) the hero now fills the visible screen when the page loads, so the About section no longer peeks in at the bottom. It uses the visible screen height, so it also works with a phone browser's address bar.
+- Made a taller 3:4 crop of the hero photo for phones (`background-mobile.webp`, about 63 KB) to fill that space. The photo covers whatever height the phone has, and the tagline and buttons sit at the bottom of the screen.
+- Tablets, desktops and the glitch effect are unchanged.
 
 ### v3.3 (October 23, 2026)
 
