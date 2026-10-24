@@ -138,6 +138,7 @@ After a change to the preview image or the sharing tags, paste the site address 
 
 - Filled in the second project card with the musician website: its own icon, an "In development" status, a short description, a list of tools and a link that opens the site in a new tab.
 - Updated the Projects intro line to say that one project is live and one is in development.
+- Shortened the page description and the sharing description to 144 characters, inside the 90 to 155 range that the Facebook Sharing Debugger asks for.
 - Made the vertical seam on the desktop hero run the full height, from the header down to the bottom of the hero, instead of fading out behind the face and name.
 - Added `assets/projects/minaw.svg`. No scripts or third-party resources were added, so the Content Security Policy is unchanged.
 
