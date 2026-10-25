@@ -6,12 +6,12 @@ It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 
 
 The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
-**Version:** 3.4 (October 25, 2026). See [Release notes](#release-notes).
+**Version:** 3.5 (October 25, 2026). See [Release notes](#release-notes).
 
 ## What's on the page
 
 - **Hero:** a full-width photo behind the split ice and ember name, with a rare glitch flash on both the name and the background, then a one-line tagline and two buttons.
-- **About:** portrait, short bio, a tech support career paragraph, and a "How I got here" timeline.
+- **About:** portrait, short bio, a tech support career paragraph, a "How I got here" timeline and a quote. On desktop the timeline sits under the portrait, beside the bio.
 - **Projects:** the Detective Conan Watch Order checklist (live), a musician website (in development), and one "coming soon" card ready to be filled in.
 - **Contact:** a note for recruiters and anyone interested in my CV, contact links with icons, and a working contact form.
 
@@ -133,6 +133,12 @@ After a change to the preview image or the sharing tags, paste the site address 
 - The CV is deliberately not published. The contact section asks recruiters to use the form so that it can be shared on request.
 
 ## Release notes
+
+### v3.5 (October 25, 2026)
+
+- On desktop (861 px and wider) the About section is now two columns: the portrait with the "How I got here" timeline underneath on the left, and the bio with the quote on the right. This removes the empty space that sat under the portrait.
+- The bio and the timeline are now wrapped in `.about-bio` and `.about-path` in `index.html`, so the layout can rearrange them. The Pat Riley quote moved to the end of the bio.
+- Phones and tablets keep one column. The order there is now portrait, bio, quote, then the timeline.
 
 ### v3.4 (October 25, 2026)
 
