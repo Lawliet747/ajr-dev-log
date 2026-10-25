@@ -6,13 +6,14 @@ It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 
 
 The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
-**Version:** 3.5 (October 25, 2026). See [Release notes](#release-notes).
+**Version:** 3.5.1 (October 25, 2026). See [Release notes](#release-notes).
 
 ## What's on the page
 
 - **Hero:** a full-width photo behind the split ice and ember name, with a rare glitch flash on both the name and the background, then a one-line tagline and two buttons.
 - **About:** portrait, short bio, a tech support career paragraph, a "How I got here" timeline and a quote. On desktop the timeline sits under the portrait, beside the bio.
 - **Projects:** the Detective Conan Watch Order checklist (live), a musician website (in development), and one "coming soon" card ready to be filled in.
+- **Footer:** your name and a short line about you, an Explore column (About, Projects, Contact), a Connect column (Email, Messenger, LinkedIn), then the copyright line and a Back to top link.
 - **Contact:** a note for recruiters and anyone interested in my CV, contact links with icons, and a working contact form.
 
 ## Structure
@@ -133,6 +134,13 @@ After a change to the preview image or the sharing tags, paste the site address 
 - The CV is deliberately not published. The contact section asks recruiters to use the form so that it can be shared on request.
 
 ## Release notes
+
+### v3.5.1 (October 25, 2026)
+
+- Rebuilt the footer so it reads like a personal site: the mark and name with a short line about me, an Explore column (About, Projects, Contact), a Connect column (Email, Messenger, LinkedIn), and a bottom row with the copyright line and a Back to top link.
+- Added a blue and orange line along the top of the footer, matching the section dividers. It is one column on small phones and two columns up to 700 px wide.
+- To change the footer's links, edit the lists in `<footer class="site-footer">` in `index.html`. The year is still filled in by `script.js` (keep `id="year"`).
+- No scripts or third-party resources were added, so the Content Security Policy is unchanged.
 
 ### v3.5 (October 25, 2026)
 

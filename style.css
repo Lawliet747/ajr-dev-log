@@ -628,13 +628,88 @@ a:hover { color: #b9e5ff; }
 
 /* ---------- Footer ---------- */
 .site-footer {
-  padding: 2rem 5vw;
-  border-top: 1px solid var(--line);
+  padding: clamp(2.5rem, 6vw, 4rem) 5vw 1.75rem;
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, var(--ice) 50%, var(--ember) 50%) 1;
+  background: var(--ink-2);
   color: var(--muted);
+}
+.site-footer p { margin: 0; max-width: none; }
+
+.footer-main,
+.footer-bottom {
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  padding-bottom: 2.25rem;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.footer-brand:hover { color: var(--text); }
+.footer-brand img { display: block; flex: none; }
+
+.footer-about p { max-width: 36ch; font-size: 0.95rem; line-height: 1.65; }
+
+.footer-col h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.footer-col ul { list-style: none; margin: 0; padding: 0; }
+.footer-col li + li { margin-top: 0.55rem; }
+.footer-col a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.footer-col a:hover { color: var(--ice); border-bottom-color: var(--ice); }
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
   font-family: var(--font-mono);
   font-size: 0.8rem;
 }
-.site-footer p { margin: 0; max-width: none; }
+.to-top {
+  color: var(--ice);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.to-top:hover { color: #b9e5ff; text-decoration: underline; text-underline-offset: 0.3em; }
+
+@media (max-width: 700px) {
+  .footer-main { grid-template-columns: 1fr 1fr; }
+  .footer-about { grid-column: 1 / -1; }
+}
+@media (max-width: 380px) {
+  .footer-main { grid-template-columns: 1fr; }
+}
 
 /* Stacked hero: phones, and tablets held upright. The colour split is confined
    to a band behind the title, and
