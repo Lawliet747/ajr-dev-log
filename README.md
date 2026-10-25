@@ -6,7 +6,7 @@ It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 
 
 The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
-**Version:** 3.5.1 (October 25, 2026). See [Release notes](#release-notes).
+**Version:** 3.6 (October 26, 2026). See [Release notes](#release-notes).
 
 ## What's on the page
 
@@ -24,8 +24,9 @@ favicon.ico       Fallback browser icon (kept in the root on purpose)
 style.css         All styles, with design tokens at the top
 script.js         Hero name fitting, nav highlighting, footer year and contact form
 README.md         This file
-RELEASE-*.md      The release description for each version
 .gitignore        Files Git should skip
+docs/
+  releases/       The release description for each version (RELEASE-v3.6.md and so on)
 assets/
   favicon.svg     Browser tab icon
   favicon-96x96.png     PNG browser icon
@@ -135,7 +136,13 @@ After a change to the preview image or the sharing tags, paste the site address 
 
 ## Release notes
 
-### v3.6 (October 25, 2026)
+### v3.6 (October 26, 2026)
+
+- Tidied the repository. The root now holds only the site files (`index.html`, `style.css`, `script.js`, `favicon.ico`) and the README. The release descriptions moved into `docs/releases/`, and the unused files and the empty `temp` folders were deleted.
+- No site code changed, so the live site looks and works exactly as in v3.5.1.
+- Because Cloudflare Pages publishes the whole repository, the release descriptions are still reachable on the live site under `/docs/releases/`. Move them out of the repository or delete the folder if you would rather not publish them.
+
+### v3.5.1 (October 25, 2026)
 
 - Rebuilt the footer so it reads like a personal site: the mark and name with a short line about me, an Explore column (About, Projects, Contact), a Connect column (Email, Messenger, LinkedIn), and a bottom row with the copyright line and a Back to top link.
 - Added a blue and orange line along the top of the footer, matching the section dividers. It is one column on small phones and two columns up to 700 px wide.
