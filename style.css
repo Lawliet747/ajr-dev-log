@@ -383,6 +383,19 @@ a:hover { color: #b9e5ff; }
   box-shadow: -12px 0 0 var(--ice), 12px 0 0 var(--ember);
 }
 
+/* Desktop: the bio sits beside the portrait and the timeline, which fills the
+   space under the portrait. Phones and tablets keep one column in reading order. */
+@media (min-width: 861px) {
+  .about-copy { display: contents; }
+  .portrait { grid-column: 1; grid-row: 1; }
+  .about-bio { grid-column: 2; grid-row: 1 / span 2; }
+  .about-path { grid-column: 1; grid-row: 2; }
+  .about-path h3 { margin-top: 0; }
+  .about-path .path { margin-bottom: 0; }
+  .about-bio .quote { margin-top: 2.5rem; }
+  .about-grid { row-gap: 2.5rem; }
+}
+
 /* Numbered because it really is a sequence */
 .path {
   list-style: none;
