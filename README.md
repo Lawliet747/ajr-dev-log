@@ -135,7 +135,7 @@ After a change to the preview image or the sharing tags, paste the site address 
 
 ## Release notes
 
-### v3.5.1 (October 25, 2026)
+### v3.6 (October 25, 2026)
 
 - Rebuilt the footer so it reads like a personal site: the mark and name with a short line about me, an Explore column (About, Projects, Contact), a Connect column (Email, Messenger, LinkedIn), and a bottom row with the copyright line and a Back to top link.
 - Added a blue and orange line along the top of the footer, matching the section dividers. It is one column on small phones and two columns up to 700 px wide.
