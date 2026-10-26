@@ -6,13 +6,13 @@ It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 
 
 The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
-**Version:** 3.6 (October 26, 2026). See [Release notes](#release-notes).
+**Version:** 3.6.1 (October 26, 2026). See [Release notes](#release-notes).
 
 ## What's on the page
 
 - **Hero:** a full-width photo behind the split ice and ember name, with a rare glitch flash on both the name and the background, then a one-line tagline and two buttons.
 - **About:** portrait, short bio, a tech support career paragraph, a "How I got here" timeline and a quote. On desktop the timeline sits under the portrait, beside the bio.
-- **Projects:** the Detective Conan Watch Order checklist (live), a musician website (in development), and one "coming soon" card ready to be filled in.
+- **Projects:** the Detective Conan Watch Order checklist (live), the Minaw Official Website (in development), and one "coming soon" card ready to be filled in.
 - **Footer:** your name and a short line about you, an Explore column (About, Projects, Contact), a Connect column (Email, Messenger, LinkedIn), then the copyright line and a Back to top link.
 - **Contact:** a note for recruiters and anyone interested in my CV, contact links with icons, and a working contact form.
 
@@ -35,7 +35,7 @@ assets/
   noise.png       Tiled film-grain texture laid over the page
   projects/
     watch-order.svg  Icon for the Detective Conan Watch Order project card
-    minaw.svg        Icon for the musician website project card
+    minaw.svg        Icon for the Minaw Official Website project card
   images/
     portrait.jpg  Photo shown in the About section
     background-desktop.webp  Hero photo for desktops and tablets held sideways
@@ -66,7 +66,7 @@ The Projects section is in `index.html`, between About and Contact. Each project
 
 The Detective Conan Watch Order app is a separate project, hosted on its own Cloudflare Pages site at https://watch-detective-conan.pages.dev/. It is an unofficial fan project and uses only original artwork.
 
-The musician website is also separate, hosted on its own Cloudflare Pages site at https://minawph.pages.dev/. It is still in development: some sections hold placeholder text and the contact form is not connected yet. When it is finished, change the card's status from "In development" to "Live" and update its description.
+The Minaw Official Website is also separate, hosted on its own Cloudflare Pages site at https://minawph.pages.dev/. It is still in development: some sections hold placeholder text and the contact form is not connected yet. When it is finished, change the card's status from "In development" to "Live" and update its description.
 
 ## Contact form
 
@@ -135,6 +135,11 @@ After a change to the preview image or the sharing tags, paste the site address 
 - The CV is deliberately not published. The contact section asks recruiters to use the form so that it can be shared on request.
 
 ## Release notes
+
+### v3.6.1 (October 26, 2026)
+
+- Renamed the second project card from "Musician Website" to "Minaw Official Website", and rewrote its description to list what the site has: a hero photo, music releases, upcoming shows, news, a gallery, a bio and a booking and contact form.
+- Updated the card's link label for screen readers to match. The status stays "In development". No other code changed.
 
 ### v3.6 (October 26, 2026)
 
