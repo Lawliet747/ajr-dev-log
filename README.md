@@ -6,7 +6,7 @@ It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 
 
 The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
-**Version:** 3.6.1 (October 26, 2026). See [Release notes](#release-notes).
+**Version:** 3.6.2 (October 27, 2026). See [Release notes](#release-notes).
 
 ## What's on the page
 
@@ -135,6 +135,11 @@ After a change to the preview image or the sharing tags, paste the site address 
 - The CV is deliberately not published. The contact section asks recruiters to use the form so that it can be shared on request.
 
 ## Release notes
+
+### v3.6.2 (October 27, 2026)
+
+- Adjusted the spacing of the desktop hero (861 px and wider, and tablets held sideways) so the name, tagline and buttons sit at an even distance from each other.
+- Raised the whole block off the bottom edge with more padding under the buttons, which grows with the screen width. Phones and upright tablets are unchanged.
 
 ### v3.6.1 (October 26, 2026)
 
