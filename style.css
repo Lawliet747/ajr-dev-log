@@ -282,7 +282,7 @@ a:hover { color: #b9e5ff; }
     --title-lines: 1;
     --title-fill: 0.72;
     align-items: stretch;
-    padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4.5rem);   /* room under the buttons, so the block does not hug the bottom edge */
     background:
       linear-gradient(0deg, rgba(10, 11, 13, 0.9) 0%, rgba(10, 11, 13, 0.55) 22%, transparent 48%),
       url(assets/images/background-desktop.webp) 50% 0% / cover no-repeat,
@@ -292,10 +292,11 @@ a:hover { color: #b9e5ff; }
   .hero-inner {
     display: grid;
     grid-template-rows: 1fr auto auto;
-    row-gap: 1.25rem;
+    row-gap: 0.5rem;
   }
 
-  .hero-title { grid-row: 2; margin-bottom: 0; white-space: nowrap; }
+  /* Even rhythm: name, tagline and buttons are spaced the same distance apart */
+  .hero-title { grid-row: 2; margin-bottom: 0; padding-bottom: 0.1em; white-space: nowrap; }
   .hero-copy  { grid-row: 3; align-self: start; }
 
   .hero-lead {
@@ -303,6 +304,7 @@ a:hover { color: #b9e5ff; }
     margin-bottom: 0;
     text-shadow: 0 1px 14px rgba(0, 0, 0, 0.75);
   }
+  .hero-actions { margin-top: 1.5rem; }
 }
 
 /* ---------- Buttons ---------- */
