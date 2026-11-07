@@ -549,6 +549,9 @@ a:hover { color: #b9e5ff; }
   align-items: start;
 }
 
+.contact-topic { margin: 1.5rem 0 0.35rem; }
+.contact-topic + p { margin-top: 0; }
+
 .contact-links {
   margin: 0;
   padding: 0;
