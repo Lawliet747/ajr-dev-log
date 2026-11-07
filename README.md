@@ -6,7 +6,7 @@ It is the successor to AJR Vlogs, which began as a college lab exercise in 2020 
 
 The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 
-**Version:** 3.6.2 (October 27, 2026). See [Release notes](#release-notes).
+**Version:** 3.6.3 (November 7, 2026). See [Release notes](#release-notes).
 
 ## What's on the page
 
@@ -14,7 +14,7 @@ The site is live at https://ajrdevlog.pages.dev/ (hosted on Cloudflare Pages).
 - **About:** portrait, short bio, a tech support career paragraph, a "How I got here" timeline and a quote. On desktop the timeline sits under the portrait, beside the bio.
 - **Projects:** the Detective Conan Watch Order checklist (live), the Minaw Official Website (in development), and one "coming soon" card ready to be filled in.
 - **Footer:** your name and a short line about you, an Explore column (About, Projects, Contact), a Connect column (Email, Messenger, LinkedIn), then the copyright line and a Back to top link.
-- **Contact:** a note for recruiters and anyone interested in my CV, contact links with icons, and a working contact form.
+- **Contact:** a short intro, one note for general questions and one for recruiters and anyone interested in my CV, contact links with icons, and a working contact form.
 
 ## Structure
 
@@ -135,6 +135,11 @@ After a change to the preview image or the sharing tags, paste the site address 
 - The CV is deliberately not published. The contact section asks recruiters to use the form so that it can be shared on request.
 
 ## Release notes
+
+### v3.6.3 (November 7, 2026)
+
+- Rewrote the contact section copy. The heading is now "Let's talk", followed by a short intro and two labeled topics: "Questions or just saying hi" and "Hiring or want my CV?".
+- Added a small `.contact-topic` style for the two topic headings.
 
 ### v3.6.2 (October 27, 2026)
 
